@@ -1,15 +1,15 @@
+import Post from "./Post";
+
 function Posts({ posts }: { posts: { id: number; title: string; content: string }[] }) {
+  const renderedPosts = posts.map(post => {
+    return (<Post key={post.id} post={post} />)
+  })
+
   return (
     <div>
-      {posts.map(post => (
-        <div key={post.id}>
-          <h2><a href={`posts/${post.id}`}>{post.title}</a></h2>
-          <p>{post.content}</p>
-        </div>
-      ))}
+      {renderedPosts}
     </div>
   );
-
 }
 
 export default Posts;
